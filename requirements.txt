@@ -1,0 +1,6 @@
+speechrecognition
+pyttsx3
+pyaudio
+kivy
+pytest
+flake8
