@@ -4,3 +4,4 @@ pyaudio
 kivy
 pytest
 flake8
+openai
