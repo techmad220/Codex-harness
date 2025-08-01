@@ -1,4 +1,6 @@
-import mobile_app
+import pytest
+
+mobile_app = pytest.importorskip("mobile_app")
 
 
 def test_voice_app_loads_specified_plugin(monkeypatch):

@@ -15,6 +15,10 @@ message.
 This project demonstrates simple speech recognition and text-to-speech examples
 written in Python.
 
+`voice_bridge.always_listen()` can run continuously in the background. It waits
+for you to say **"hey codex"** and then processes the next phrase as a command.
+Saying **"repeat"** will speak back the last processed phrase.
+
 ## Installation
 
 Install the required Python packages:
