@@ -9,7 +9,11 @@ python mobile_app.py --plugin myplugin
 ```
 
 Replace `myplugin` with the plugin you want to load.
-This project demonstrates simple speech recognition and text-to-speech examples written in Python.
+Plugins are discovered at runtime using `plugins.load_plugins()`. If the
+requested plugin cannot be imported, the app continues without it and prints a
+message.
+This project demonstrates simple speech recognition and text-to-speech examples
+written in Python.
 
 ## Installation
 

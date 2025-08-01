@@ -5,6 +5,7 @@ from kivy.uix.label import Label
 import speech_recognition as sr
 import pyttsx3
 import argparse
+from plugins import load_plugins
 
 
 class VoiceBox(BoxLayout):
@@ -36,9 +37,19 @@ class VoiceApp(App):
     def __init__(self, plugin="default", **kwargs):
         super().__init__(**kwargs)
         self.plugin = plugin
+        self.plugin_module = None
 
     def build(self):
         print(f"Launching with plugin: {self.plugin}")
+        available = load_plugins()
+        self.plugin_module = available.get(self.plugin)
+        if self.plugin_module is None:
+            print(f"Plugin '{self.plugin}' not found; continuing without it")
+        else:
+            print(
+                f"Loaded plugin '{self.plugin}' from "
+                f"{self.plugin_module.__name__}"
+            )
         return VoiceBox()
 
 
