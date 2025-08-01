@@ -1,8 +1,18 @@
-import speech_recognition as sr
-import pyttsx3
+try:
+    import speech_recognition as sr  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - optional dependency
+    sr = None
+
+try:
+    import pyttsx3  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - optional dependency
+    pyttsx3 = None
 
 
 def listen_and_repeat():
+    if sr is None or pyttsx3 is None:
+        raise RuntimeError("voice dependencies are not installed")
+
     recognizer = sr.Recognizer()
     engine = pyttsx3.init()
     with sr.Microphone() as source:
